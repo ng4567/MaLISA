@@ -1,0 +1,93 @@
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+    <SurfaceView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/camera_preview"
+        android:layout_weight="1" />
+    -->
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="80">
+
+        <FrameLayout
+            android:id="@+id/camera_preview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:id="@+id/cameraFocus">
+
+        </FrameLayout>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="136dp"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:background="#FF000000"
+        android:layout_gravity="bottom"
+        android:clickable="false"
+        android:id="@+id/controls_layout"
+        android:focusable="false">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="color name"
+            android:id="@+id/colorName"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FFFFFFFF" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="RGB\n#FFFFFF"
+            android:id="@+id/colorValue"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="#FFFFFFFF" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to Calculator"
+            android:id="@+id/switchtoregressionlineactivity"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/colorName" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pick 1st Control"
+            android:id="@+id/button2"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/switchtoregressionlineactivity"
+            android:layout_toStartOf="@+id/switchtoregressionlineactivity" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
