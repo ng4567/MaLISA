@@ -77,6 +77,7 @@ public class PrincipalScreen extends Activity implements SurfaceHolder.Callback,
     public void OnClickButtonListener() {
 
         button_sbm = (Button) findViewById(R.id.switchtoregressionlineactivity);
+        button_sbm.setVisibility(View.GONE);
         button_sbm.setOnClickListener(
 
                 new View.OnClickListener() {
@@ -155,7 +156,7 @@ public class PrincipalScreen extends Activity implements SurfaceHolder.Callback,
             int[] pixels = converter.convert(data, this.colorFormat);
 
             final int color = pickColor(pixels, height, width);
-            updateColorData(color);
+            //updateColorData(color);
             final Button button_update_color = (Button) findViewById(R.id.button2);
             button_update_color.setOnClickListener(
 
@@ -169,27 +170,37 @@ public class PrincipalScreen extends Activity implements SurfaceHolder.Callback,
 
                             if(counter < 1) {
 
-                                button_update_color.setText("Pick 1st control");
+                                button_update_color.setText("Record low control");
 
                             } else {
                                 if(counter >0 && counter <2){
 
-                                    button_update_color.setText("Pick 2nd Control");
+                                    button_update_color.setText("Record medium control");
 
                                 }
 
                                 if(counter >1 && counter < 3){
 
-                                    button_update_color.setText("Pick 3rd Control");
+                                    button_update_color.setText("Record high control");
 
                                 }
 
 
                                 if(counter >2 && counter < 4){
 
-                                    button_update_color.setText("Pick unknown");
+                                    button_update_color.setText("Record unkown control");
+
 
                                 }
+
+                                if(counter >3 && counter < 5){
+
+                                    button_update_color.setVisibility(View.GONE);
+                                    button_sbm.setVisibility(View.VISIBLE);
+
+
+                                }
+
 
                             }
 
@@ -210,7 +221,7 @@ public class PrincipalScreen extends Activity implements SurfaceHolder.Callback,
 
     public void storeColorInSharedPreferences(int color) {
 
-         SharedPreferences sharedprefernces = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        SharedPreferences sharedprefernces = getSharedPreferences("MyData", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedprefernces.edit();
         String value = String.valueOf(color);
         String counter_string_form = String.valueOf(counter);
@@ -219,7 +230,7 @@ public class PrincipalScreen extends Activity implements SurfaceHolder.Callback,
         editor.commit();
 
 
-        String to_toast = "value " + counter + " recorded";
+        String to_toast = "concentration " + (counter + 1) + " recorded";       //add the plus one because it starts at zero
 
         Toast display_counter = Toast.makeText(this, to_toast, Toast.LENGTH_SHORT);
         display_counter.show();
@@ -307,12 +318,13 @@ public class PrincipalScreen extends Activity implements SurfaceHolder.Callback,
         return res;
     }
 
+    
 
     /**
      * Update color name, color value and color displayed into the layout
      */
 
-    private void updateColorData(int color) {
+    /**private void updateColorData(int color) {
         // Update color value
         TextView colorValue = (TextView) findViewById(R.id.colorValue);
         String colorModel = "";
@@ -327,7 +339,7 @@ public class PrincipalScreen extends Activity implements SurfaceHolder.Callback,
 
 
 
-    }
+    }*/
 
     // Ancillary methods ---------------------------------------------------------------------------
     private void loadUserPreferences() {

@@ -1,17 +1,25 @@
 package es.us.colometer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.preference.PreferenceManager;
+import android.content.Intent;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import es.us.colometer.app.R;
 
-public class regressionlinecalculator extends ActionBarActivity {
+public class regressionlinecalculator extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
     String first_control;
@@ -19,6 +27,11 @@ public class regressionlinecalculator extends ActionBarActivity {
     String third;
     String unknown;
 
+
+
+
+
+    private static Button button_sbm;
 
 
     @Override
@@ -30,8 +43,21 @@ public class regressionlinecalculator extends ActionBarActivity {
         second_control = sharedPreferences.getString("1", "");
         third = sharedPreferences.getString("2", "");
         unknown = sharedPreferences.getString("3", "");
+        Button asdf = (Button)findViewById(R.id.switch_to_DisplayConcentration);
+        asdf.setVisibility(View.GONE);
+    }
 
-
+    public void OnClickButtonListener(){
+        button_sbm = (Button) findViewById(R.id.switch_to_DisplayConcentration);
+        button_sbm.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent("es.us.colometer.DisplayConcentration");
+                        startActivity(intent);
+                    }
+                }
+        );
 
 
     }
@@ -43,16 +69,11 @@ public class regressionlinecalculator extends ActionBarActivity {
 
 
 
-
-
-    public void submit_to_server(View view) {
-
-        Toast submit2server = Toast.makeText(this, new String("Patient Concentration and ID submitted"), Toast.LENGTH_SHORT);
-        submit2server.show();
-    }
 
     public void view_concentration(View view) {
-
+        TextView change_for_equation = (TextView) findViewById(R.id.equation_text_view);
+        Button view_conc = (Button) findViewById(R.id.view_line);
+        Button asdf = (Button)findViewById(R.id.switch_to_DisplayConcentration);
 
         //puts the x and y values into double data type so they can be manipulated, they were strings
         double first_x = Double.parseDouble(first_control);
@@ -61,12 +82,9 @@ public class regressionlinecalculator extends ActionBarActivity {
         double fourth_x = Double.parseDouble(unknown);
 
         //update these once you get concentration values from excel
-        double first_y = 1;
-        double second_y = 2;
-        double third_y = 3;
-
-
-
+        double first_y = 0.1;        //nanograms per ml low concentration
+        double second_y = 1;         //medium
+        double third_y = 10;         //high
 
 
         // slope = (Nxysum) - (xsumysum)/(Nx2sum) - (xsumxsum)
@@ -90,17 +108,42 @@ public class regressionlinecalculator extends ActionBarActivity {
         double y_intercept = ((x2sum * y_sum) - (x_sum * xysum)) / ((N * x2sum) - (x2sum * x2sum));
 
         // concentration = input * slope + y intercept
+        String slope_rounded = String.format("%.5f", slope); //rounding to make presentation better
+        String y_int_rounded = String.format("%.5f", y_intercept);
 
-        double concentration = (fourth_x * slope) + y_intercept;
-        String equation_string =  slope + "x + " + y_intercept;
-        String display_this_value = "Concentration: " + concentration + "best fit line equation: " + equation_string;
+        double concentration = (Double.parseDouble(unknown) * slope) + y_intercept;
+
+        String equation_string =  "y = " + slope_rounded + "x + " + y_int_rounded;
+
+        change_for_equation.setText(equation_string);
+        view_conc.setVisibility(View.GONE);
 
 
-        Toast display = Toast.makeText(this, display_this_value, Toast.LENGTH_SHORT);
+        storeColorInSharedPreferences(concentration);
+        asdf.setVisibility(View.VISIBLE);
+        OnClickButtonListener();
+    }
 
-        display.show();
+    public void storeColorInSharedPreferences(double var) {
+
+        SharedPreferences sharedprefernces = getSharedPreferences("conc", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedprefernces.edit();
+        String value = String.valueOf(var);
+        editor.putString("1", value);
+
+        editor.commit();
 
 
 
     }
+
+
+
+
+
 }
+
+
+
+
+

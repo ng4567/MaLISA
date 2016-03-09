@@ -10,42 +10,39 @@
     tools:context="es.us.colometer.regressionlinecalculator">
 
 
-    <EditText
+
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:text="Enter Patient ID"
-        android:layout_marginTop="32dp"
-        android:layout_below="@+id/view_concentration"
+        android:text="View Regression Line"
+        android:id="@+id/view_line"
+        android:onClick="view_concentration"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/equation_text_view"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="View Concentration"
-        android:id="@+id/view_concentration"
-        android:layout_marginTop="32dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="view_concentration"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit to Server"
-        android:id="@+id/submit_to_server"
-        android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        android:onClick="submit_to_server"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Concentration"
+            android:id="@+id/switch_to_DisplayConcentration"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="102dp"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next Patient"
-        android:id="@+id/back_to_first_activity"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+    </LinearLayout>
+
+
 </RelativeLayout>

@@ -46,46 +46,26 @@
         android:focusable="false">
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="color name"
-            android:id="@+id/colorName"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:textColor="#FFFFFFFF" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="RGB\n#FFFFFF"
-            android:id="@+id/colorValue"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textColor="#FFFFFFFF" />
+
+
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Go to Calculator"
+            android:text="View Regression Line"
             android:id="@+id/switchtoregressionlineactivity"
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
-            android:layout_above="@+id/colorName" />
+             />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pick 1st Control"
             android:id="@+id/button2"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/switchtoregressionlineactivity"
-            android:layout_toStartOf="@+id/switchtoregressionlineactivity" />
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
 
 
     </RelativeLayout>

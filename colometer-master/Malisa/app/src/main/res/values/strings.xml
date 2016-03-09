@@ -8,5 +8,9 @@
     <string name="focus_radius">Focus radius</string>
     <string name="title_activity_regressionlinecalculator">regressionlinecalculator</string>
     <string name="title_activity_login">Login</string>
+    <string name="title_activity_first_screen">first_screen</string>
+    <string name="Start">Start</string>
+    <string name="title_activity_display_concentration">DisplayConcentration</string>
+
 
 </resources>
