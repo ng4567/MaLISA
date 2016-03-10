@@ -21,11 +21,11 @@ import es.us.colometer.app.R;
 
 public class regressionlinecalculator extends AppCompatActivity {
 
-    SharedPreferences sharedPreferences;
-    String first_control;
-    String second_control;
-    String third;
-    String unknown;
+    //SharedPreferences sharedPreferences; //commented out for demo purposes
+    //String first_control;
+    //String second_control;
+    //String third;
+    //String unknown;
 
 
 
@@ -38,13 +38,15 @@ public class regressionlinecalculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regressionlinecalculator);
-        sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
-        first_control = sharedPreferences.getString("0", "");
-        second_control = sharedPreferences.getString("1", "");
-        third = sharedPreferences.getString("2", "");
-        unknown = sharedPreferences.getString("3", "");
+        //sharedPreferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        //first_control = sharedPreferences.getString("0", "");
+       // second_control = sharedPreferences.getString("1", "");
+        //third = sharedPreferences.getString("2", "");
+        //unknown = sharedPreferences.getString("3", "");
         Button asdf = (Button)findViewById(R.id.switch_to_DisplayConcentration);
         asdf.setVisibility(View.GONE);
+
+        OnClickButtonListener();
     }
 
     public void OnClickButtonListener(){
@@ -76,7 +78,7 @@ public class regressionlinecalculator extends AppCompatActivity {
         Button asdf = (Button)findViewById(R.id.switch_to_DisplayConcentration);
 
         //puts the x and y values into double data type so they can be manipulated, they were strings
-        double first_x = Double.parseDouble(first_control);
+        /* double first_x = Double.parseDouble(first_control);
         double second_x = Double.parseDouble(second_control);
         double third_x = Double.parseDouble(third);
         double fourth_x = Double.parseDouble(unknown);
@@ -116,15 +118,15 @@ public class regressionlinecalculator extends AppCompatActivity {
         String equation_string =  "y = " + slope_rounded + "x + " + y_int_rounded;
 
         change_for_equation.setText(equation_string);
-        view_conc.setVisibility(View.GONE);
+        */view_conc.setVisibility(View.GONE);
 
 
-        storeColorInSharedPreferences(concentration);
+        //storeColorInSharedPreferences(concentration);
         asdf.setVisibility(View.VISIBLE);
-        OnClickButtonListener();
+
     }
 
-    public void storeColorInSharedPreferences(double var) {
+   /* public void storeColorInSharedPreferences(double var) {
 
         SharedPreferences sharedprefernces = getSharedPreferences("conc", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedprefernces.edit();
@@ -136,7 +138,7 @@ public class regressionlinecalculator extends AppCompatActivity {
 
 
     }
-
+*/
 
 
 

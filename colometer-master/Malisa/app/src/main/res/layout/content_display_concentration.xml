@@ -42,16 +42,19 @@
         android:layout_marginTop="67dp"
         android:layout_below="@+id/view_concentration"
         android:layout_centerHorizontal="true"
-        android:textSize="50dp"/>
+        android:textSize="50dp"
+        android:text="17.70" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/ngml"
-        android:textSize="30dp"
         android:layout_below="@+id/concentration_text_view"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:textSize="30dp"
+        android:text="ng/mL" />
 
     <TextView
         android:layout_width="wrap_content"
