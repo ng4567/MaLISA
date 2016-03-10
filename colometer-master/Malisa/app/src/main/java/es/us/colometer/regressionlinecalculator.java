@@ -117,7 +117,7 @@ public class regressionlinecalculator extends AppCompatActivity {
 
        String equation_string =  "y = " + slope_rounded + "x + " + y_int_rounded;  */
 
-        change_for_equation.setText("y = 0.5x + 3.00"); //replace with equation_string
+        change_for_equation.setText("y = 0.5x + 3.00"); //replace with equation_string later
         view_conc.setVisibility(View.GONE);
 
 
