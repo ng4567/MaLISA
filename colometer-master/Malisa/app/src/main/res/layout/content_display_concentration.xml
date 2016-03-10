@@ -42,8 +42,7 @@
         android:layout_marginTop="67dp"
         android:layout_below="@+id/view_concentration"
         android:layout_centerHorizontal="true"
-        android:textSize="50dp"
-        android:text="17.70" />
+        android:textSize="50dp" />
 
     <TextView
         android:layout_width="wrap_content"

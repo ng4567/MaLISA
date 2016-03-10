@@ -15,8 +15,8 @@ import android.widget.Toast;
 import es.us.colometer.app.R;
 
 public class DisplayConcentration extends AppCompatActivity {
-    //SharedPreferences sharedPreferences; commented out for demo purposes
-    //String concentration;
+    SharedPreferences sharedPreferences; 
+    String concentration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +25,13 @@ public class DisplayConcentration extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //sharedPreferences = getSharedPreferences("conc", Context.MODE_PRIVATE);
-        //concentration = sharedPreferences.getString("1", "");
+        sharedPreferences = getSharedPreferences("conc", Context.MODE_PRIVATE);
+        concentration = sharedPreferences.getString("1", "");
 
-        //TextView concen = (TextView) findViewById(R.id.concentration_text_view);
-        //TextView ng = (TextView) findViewById(R.id.ngml);
-        //concen.setText("17.10");
-        //ng.setText("ng/mL");
+        TextView concen = (TextView) findViewById(R.id.concentration_text_view);
+        TextView ng = (TextView) findViewById(R.id.ngml);
+        concen.setText(concentration);
+        ng.setText("ng/mL");
 
 
     }
