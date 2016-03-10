@@ -115,10 +115,10 @@ public class regressionlinecalculator extends AppCompatActivity {
 
         double concentration = (Double.parseDouble(unknown) * slope) + y_intercept;
 
-        String equation_string =  "y = " + slope_rounded + "x + " + y_int_rounded;
+       String equation_string =  "y = " + slope_rounded + "x + " + y_int_rounded;  */
 
-        change_for_equation.setText(equation_string);
-        */view_conc.setVisibility(View.GONE);
+        change_for_equation.setText("y = 0.5x + 3.00"); //replace with equation_string
+        view_conc.setVisibility(View.GONE);
 
 
         //storeColorInSharedPreferences(concentration);
